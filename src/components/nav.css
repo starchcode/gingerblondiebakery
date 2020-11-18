@@ -1,0 +1,17 @@
+ul{
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    flex-basis: 800px;
+    list-style: none;
+    border-bottom: 2px #B98F68 solid;
+}
+li{
+    font-size: 16px;
+    padding:0 20px;
+    padding-bottom: 14px;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+}
