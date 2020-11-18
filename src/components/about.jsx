@@ -1,5 +1,5 @@
 import React from 'react'
-
+import aboutme from './imgs/aboutme.jpg'
 class About extends React.Component {
     constructor(props) {
         super(props);
@@ -29,6 +29,7 @@ class About extends React.Component {
     return (
         <div id="about" ref={this.mySection} onClick={this.handleClick}>
             ABOUT PAGE
+            <img src={aboutme}/>
         </div>
     )
     }

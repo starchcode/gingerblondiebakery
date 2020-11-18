@@ -69,8 +69,8 @@
     width: 95%;
 }
 #about{
-    display: none;
-    height: 20vh;
+    /* display: none; */
+    /* height: 20vh; */
     background-color: gray;
     /* color: green; */
 }
