@@ -20,11 +20,11 @@ header{
 #h{ 
     /* display: inline-block; */
     cursor: pointer;
-    height: 140px;
-    width: 140px;
+    height: 125px;
+    width: 125px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: red;
+    /* background-color: red; */
     border: 5px white solid;
     -webkit-box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.15); 
 box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.15);
