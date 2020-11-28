@@ -20,8 +20,8 @@ header{
 #h{ 
     /* display: inline-block; */
     cursor: pointer;
-    height: 125px;
-    width: 125px;
+    height: 105px;
+    width: 105px;
     border-radius: 50%;
     overflow: hidden;
     /* background-color: red; */

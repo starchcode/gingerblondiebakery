@@ -19,7 +19,7 @@ function App() {
       </header>
       <Switch>
         <Route exact path="/">
-          <Home myProp="s" />
+          <Home />
         </Route>
         <Route path="/food" component={Food}></Route>
         {/* <Route path="/home/about" component={About}></Route> */}
