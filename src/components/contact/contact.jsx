@@ -53,7 +53,7 @@ export class Contact extends React.Component {
           </div>
           <div>
             <label>Phone(optional)</label>
-            <input value={this.state.phone} id="phone" onChange={this.changeHandler} required pattern="([+])?[0-9]+"/>
+            <input value={this.state.phone} id="phone" onChange={this.changeHandler} pattern="([+])?[0-9]+"/>
           </div>
           <div>
             <label>Enquiry</label>

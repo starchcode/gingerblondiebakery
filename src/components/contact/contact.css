@@ -4,13 +4,20 @@
 
 label{
     display: block;
-    padding: 5px 0;
+    padding: 7px 0 0 0;
 }
 #form input{
     width: 200px;
+}
+#form input:focus{
+    outline: none;
+}
+#form textarea:focus{
+    outline: none;
 }
 textarea{
     resize: none;
     height: 150px;
     width: 350px;
+    padding: 4px;
 }
