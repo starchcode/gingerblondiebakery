@@ -1,0 +1,16 @@
+#form{
+    margin: 18% 5%;
+  }
+
+label{
+    display: block;
+    padding: 5px 0;
+}
+#form input{
+    width: 200px;
+}
+textarea{
+    resize: none;
+    height: 150px;
+    width: 350px;
+}

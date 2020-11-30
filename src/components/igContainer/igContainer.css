@@ -1,11 +1,13 @@
 .igContainer{
     display: grid;
-    grid-template-columns: minmax(100px, 250px) minmax(100px, 250px) minmax(100px, 250px);
-    grid-template-rows: 100px minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+    height: 500px;
+    max-width: 50vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr;
     column-gap: 5px;
     row-gap: 5px;
-    transform: translateX(-10px) rotateY(15deg) skewY(-1deg);
 
+    transform: translateX(-10px) rotateY(15deg) skewY(-1deg);
     transform-origin: left;
     transition: all 0.5s;
 

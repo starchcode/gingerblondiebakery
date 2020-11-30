@@ -7,7 +7,7 @@ import "./App.css";
 import Nav from "./components/nav";
 // import About from './components/about';
 import { Home } from "./components/home/home";
-import { Contact } from "./components/contact";
+
 import { Food } from "./components/food";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         </Route>
         <Route path="/food" component={Food}></Route>
         {/* <Route path="/home/about" component={About}></Route> */}
-        <Route path="/contact" component={Contact}></Route>
+        {/* <Route path="/contact" component={Contact}></Route> */}
       </Switch>
     </Router>
   );
