@@ -6,6 +6,7 @@
     grid-template-rows: 100px 1fr 1fr 1fr;
     column-gap: 5px;
     row-gap: 1.9px;
+    padding: 0 5%;
 }
 
 

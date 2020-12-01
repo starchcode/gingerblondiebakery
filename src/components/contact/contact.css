@@ -1,5 +1,5 @@
 #form{
-    margin: 18% 5%;
+    margin: 14% 5%;
   }
 
 label{
@@ -20,4 +20,5 @@ textarea{
     height: 150px;
     width: 350px;
     padding: 4px;
+    margin-bottom: 3px;
 }
