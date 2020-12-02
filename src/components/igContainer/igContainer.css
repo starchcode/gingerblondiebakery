@@ -1,12 +1,12 @@
 .igContainer{
     display: grid;
-    height: 500px;
-    max-width: 50vw;
+    width: 45vw;
+    /* height: 350px; */
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 1fr 1fr 1fr;
+    grid-template-rows: .72fr 1fr 1fr 1fr;
     column-gap: 5px;
     row-gap: 1.9px;
-    padding: 0 5%;
+    /* padding: 0 5%; */
 }
 
 

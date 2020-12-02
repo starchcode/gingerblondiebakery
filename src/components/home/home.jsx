@@ -2,7 +2,8 @@ import React from "react";
 import "./home.css";
 import About from "../about";
 import { IgContainer } from "../igContainer/igContainer";
-import { Contact } from "../contact/contact"
+import { Contact } from "../contact/contact";
+import { NavMiddle } from './NavMiddle/NavMiddle';
 import portrait from "./portrait.jpg";
 import pastry from "./pastry.svg";
 import igBgLeft from "./igcontleft.svg";
@@ -51,6 +52,7 @@ export class Home extends React.Component {
           </div>
         </div>
         <About />
+        <NavMiddle />
         <div id="contact" className="contactCont">
           <IgContainer data={this.state.igData} />
           <img src={igBgLeft} />
