@@ -14,7 +14,7 @@ export class NavMiddle extends React.Component {
 
     render(){
         return (
-            <div className='NavMiddle'>
+            <div className='NavMiddle main'>
             <NavMiddleIco src={about} txt='about'/>
             <NavMiddleIco src={blog} txt='blog'/>
             <NavMiddleIco src={contact} txt='contact'/>

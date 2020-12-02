@@ -1,8 +1,9 @@
 .NavMiddle{
     display: flex;
-    width: 70%;
+    /* width: 70%; */
     height: auto;
     justify-content: space-around;
+    /* align-items: stretch; */
     margin:0 auto;
     flex-wrap: wrap;
     margin-top: 4%;

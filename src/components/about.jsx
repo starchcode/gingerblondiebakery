@@ -31,7 +31,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <div id="about">
+      <div id="about" className="main">
         <h2>About</h2>
         <div className="about_img">
           <img src={aboutme} alt="about me" />

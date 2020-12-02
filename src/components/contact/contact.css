@@ -1,5 +1,7 @@
 #form{
-    margin: 15% auto
+    display: block;
+    margin: 20% auto;
+    padding-left: 12px;
   }
 
 label{

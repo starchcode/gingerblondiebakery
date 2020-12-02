@@ -38,8 +38,13 @@ header a{
 }
 h1{
     text-transform: uppercase;
+    font-size: clamp(20px, 3vw, 30px);
 }
 
 .grecaptcha-badge{
     display: none;
+}
+
+.main{
+    max-width: 900px;
 }

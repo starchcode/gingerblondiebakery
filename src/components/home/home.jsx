@@ -6,8 +6,8 @@ import { Contact } from "../contact/contact";
 import { NavMiddle } from './NavMiddle/NavMiddle';
 import portrait from "./portrait.jpg";
 import pastry from "./pastry.svg";
-import igBgLeft from "./igcontleft.svg";
-import igBgRight from "./igcontright.svg";
+import igBg from "./igcont.svg";
+
 
 // const URL = 'https://igauthstarchcode.herokuapp.com/igdata'
 const URL = "http://localhost:4000/igdata";
@@ -34,7 +34,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        <div id="home">
+        <div id="home" className="main">
           <div className="home1">
             <h1>the ginger blondie bakery</h1>
             <p>
@@ -53,10 +53,9 @@ export class Home extends React.Component {
         </div>
         <About />
         <NavMiddle />
-        <div id="contact" className="contactCont">
+        <div id="contact" className="contactCont main">
           <IgContainer data={this.state.igData} />
-          <img src={igBgLeft} />
-          <img src={igBgRight} />
+          <img src={igBg} />
           <Contact/>
         </div>
       </div>
