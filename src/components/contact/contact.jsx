@@ -1,6 +1,7 @@
 import React from "react";
 import "./contact.css";
-const SITE_KEY = "6LdW8_MZAAAAABAqupmRrwkjixbCQXSk2cOKzo43";
+import { Newsletter } from '../newsletter/newsletter';
+
 
 export class Contact extends React.Component {
   constructor(props) {
@@ -10,7 +11,6 @@ export class Contact extends React.Component {
       email: "",
       phone: "",
       enquiry: "",
-      message: false,
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submit = this.submit.bind(this);
@@ -23,58 +23,16 @@ export class Contact extends React.Component {
     this.setState({ [targetState]: value });
   }
   async submit(e) {
-    e.preventDefault();
-    let form = this.state;
-    this.setState({ message: "Please wait..." });
-    console.log(form)
-    window.grecaptcha.ready(() => {
-        window.grecaptcha.execute(SITE_KEY, { action: 'submit' }).then(token => {
-    form["g-recaptcha-response"] = token;
-
-          submitData(token);
-        });
-      });
-      const submitData = token => {
-        // call a backend API to verify reCAPTCHA response
-        fetch('http://localhost:4000/contact', {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(form)
-        }).then(res => {
-            res.status == 200 ? this.setState({message: 'Thank you. Your message was sent!'}) : this.setState({message: 'Message was not sent'})
-        })
-        .catch((err) => this.setState({ message: "Message was not sent" }));
-      }
-
+    e.preventDefault();    
+    console.log('ok')
+    this.props.submit(this.state);
   }
 
-  componentDidMount() {
-    const loadScriptByURL = (id, url, callback) => {
-      const isScriptExist = document.getElementById(id);
-
-      if (!isScriptExist) {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = url;
-        script.id = id;
-        script.onload = function () {
-          if (callback) callback();
-        };
-        document.body.appendChild(script);
-      }
-
-      if (isScriptExist && callback) callback();
-    }
-
-    loadScriptByURL("recaptcha-key", `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`, function () {
-        console.log("Script loaded!");
-      });
-  }
+ 
 
   render() {
     return (
+
       <div id="form">
         <form onSubmit={this.submit}>
           <div>
@@ -122,7 +80,7 @@ export class Contact extends React.Component {
           </div>
           <div>
             <button type="submit">Submit</button>
-            <p>{this.state.message}</p>
+            <p>{this.props.message}</p>
           </div>
         </form>
       </div>

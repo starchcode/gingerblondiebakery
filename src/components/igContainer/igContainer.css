@@ -1,7 +1,8 @@
 .igContainer{
     display: grid;
-    width: 45vw;
-    /* height: 350px; */
+    /* width: 50%; */
+    height: 100%;
+    /* flex: 1 45vw; */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: .72fr 1fr 1fr 1fr;
     column-gap: 5px;

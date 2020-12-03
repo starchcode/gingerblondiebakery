@@ -1,0 +1,19 @@
+#newsletterContainer{
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    /* position: absolute;
+    bottom: 0; */
+
+    /* margin: 0 auto; */
+    width: 100%;
+}
+#newsletterContainer label{
+    display: inline;
+    margin-right: 5px;
+}
+#newsletterContainer p{
+    margin: 10px 0;
+}
