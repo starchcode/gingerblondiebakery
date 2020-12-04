@@ -24,7 +24,7 @@ async submition(e){
     render(){
         return(
             <div id="newsletterContainer">
-                <p>sign up...</p>
+                <p>Sign up to our newsletter to be the first to find out where we are, special discounts and receive a copy of our blog posts which contain recipes</p>
 
                 <form onSubmit={this.submition}>
                 <label>Name: </label>
@@ -33,6 +33,7 @@ async submition(e){
               value={this.state.name}
               onChange={this.changeHandler}
               required
+              pattern="[a-zA-Z\s]+"
             />
                 <label>Email: </label>
                 <input
@@ -44,7 +45,7 @@ async submition(e){
             />
         <button type='submit'>Sign up</button>
                 </form>
-            <p>{this.props.newsLetterMessage}</p>
+            <p style={this.props.style}>{this.props.newsLetterMessage}</p>
             </div>
         )
     }

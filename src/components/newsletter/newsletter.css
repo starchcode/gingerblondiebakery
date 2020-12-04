@@ -7,8 +7,8 @@
     /* position: absolute;
     bottom: 0; */
 
-    /* margin: 0 auto; */
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
 }
 #newsletterContainer label{
     display: inline;
@@ -16,4 +16,6 @@
 }
 #newsletterContainer p{
     margin: 10px 0;
+    text-align: center;
+    max-width: 580px;
 }

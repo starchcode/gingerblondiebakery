@@ -4,7 +4,8 @@ import About from "../about";
 import { IgContainer } from "../igContainer/igContainer";
 import { Contact } from "../contact/contact";
 import { NavMiddle } from './NavMiddle/NavMiddle';
-import { Newsletter } from '../newsletter/newsletter'
+import { Newsletter } from '../newsletter/newsletter';
+import { Footer } from './footer/Footer'
 import portrait from "./portrait.jpg";
 import pastry from "./pastry.svg";
 import igBg from "./igcont.svg";
@@ -20,7 +21,9 @@ export class Home extends React.Component {
     this.state = {
       igData: [],
       message: '',
-      newsLetterMessage: ''
+      newsLetterMessage: '',
+      style: null
+      // {color: 'tomato'}
     };
     this.igData = this.igData.bind(this);
     this.submit = this.submit.bind(this);
@@ -35,7 +38,7 @@ export class Home extends React.Component {
   }
 
   async submit(form) {
-    form.enquiry ? this.setState({message: 'Please be patient...'}) : this.setState({newsLetterMessage: 'Please be patient'})
+    form.enquiry ? this.setState({message: 'Please be patient...'}) : this.setState({newsLetterMessage: 'Please be patient...'})
     window.grecaptcha.ready(() => {
         window.grecaptcha.execute(SITE_KEY, { action: 'submit' }).then(token => {
     form["g-recaptcha-response"] = token;
@@ -52,6 +55,8 @@ export class Home extends React.Component {
           },
           body: JSON.stringify(form)
         }).then(res => {
+          const manytimes = 'You have tried too many times! try again later!'
+          res.status === 429 && form.enquiry ? this.setState({message: manytimes}) : res.status === 429 && !form.enquiry ? this.setState({newsLetterMessage: manytimes}) : console.log('');
           return res.json();
         }).then(jsonResponse => {
           if(jsonResponse.type === 'subscription'){
@@ -65,6 +70,9 @@ export class Home extends React.Component {
           if(form.enquiry) {
             console.log(form)
             this.setState({ message: "There was an error! Try again later! or use my email at bottom of the page to send me a message directly!" })
+          }else{
+            this.setState({ newsLetterMessage: "There was an error! Drop me your email and I will add you to the subscription list" })
+
           }
           console.log(err)
         }
@@ -129,7 +137,10 @@ export class Home extends React.Component {
         </div>
         <Newsletter
         submit={this.submit}
-        newsLetterMessage={this.state.newsLetterMessage}/>
+        newsLetterMessage={this.state.newsLetterMessage}
+        style={this.state.style}
+        />
+        <Footer />
       </div>
     );
   }
