@@ -17,7 +17,7 @@ class Nav extends React.Component {
           <Link to="/blog">Blog</Link>
         </li>
         <li>
-          {/* <Link to="/home/about">ABOUT</Link> */}
+          {/* <Link to="/">ABOUT</Link> */}
           <a href="/#about">about</a>
         </li>
         <li>

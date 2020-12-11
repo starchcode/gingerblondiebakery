@@ -5,7 +5,7 @@ import igwordmark from './igwordmark.svg';
 
 export class IgContainer extends React.Component {
   render() {
-    return (
+    return (  
       <div className="igContainer">
           <img alt='instagram logo' src={igwordmark} className='iglogo'/>
         {this.props.data.map(img => {

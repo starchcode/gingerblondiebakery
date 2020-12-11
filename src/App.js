@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import React from "react";
 import logo from "./logo.svg";
+import { Link } from "react-router-dom";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -8,13 +9,15 @@ import Nav from "./components/nav";
 // import About from './components/about';
 import { Home } from "./components/home/home";
 
-import { Food } from "./components/food";
+import Food from "./components/Food/Food";
 
 function App() {
   return (
     <Router>
       <header>
-        <a href="/"><div id='h'><img src={logo}/></div></a>
+      <Link to="/">
+        <div id='h'><img src={logo}/></div>
+      </Link>
         <Nav />
       </header>
       <Switch>
