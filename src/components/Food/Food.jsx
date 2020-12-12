@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import FoodItem from './FoodItem'
-const URL = 'http://localhost:4000'
+// const URL = 'http://localhost:4000'
+import {SERVER_URL as URL} from '../urls'
 
 export default class Food extends Component {
 constructor(props){
@@ -15,23 +16,29 @@ constructor(props){
 }
 
  imgFinder(data){
-    return  this.state.foodImg.find(img => data.featured_media==img.id)
+    return this.state.foodImg.find(img => data.featured_media==img.id).source_url
 }
 
 componentDidMount() {
 const images = {}
     fetch(`${URL}/food`)
     .then(res => {
-        if(res.status !==200) this.setState({error: true})
+
+        if(res.status === 503){
+             this.setState({error: 'Error code: ' + res.status + '. Connection issue, contact website Admin!'})
+        } else if(res.status !== 200){
+             this.setState({error: 'There was a problem! Please refresh the page 😊'})
+        }
         return res.json()
     })
     .then(jsonResponse => {
         this.setState({foodData: jsonResponse.results,
             foodImg: jsonResponse.images})
-})
+}).catch(e => console.log(e))
 }
 
     render() {
+        console.log('rendered')
         if(this.state.foodData.length > 0){
             return ( 
             <div>
@@ -48,7 +55,7 @@ const images = {}
                 </div>
                 )
             }else{
-                return <div>{this.state.error ? 'There was a problem try again' : 'Loading...'}</div>
+                return <div>{this.state.error ? this.state.error : 'Loading...'}</div>
             }
     }
             

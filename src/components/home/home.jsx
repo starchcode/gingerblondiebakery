@@ -1,4 +1,5 @@
 import React from "react";
+import {SERVER_URL as URL} from '../urls'
 import "./home.css";
 import About from "../about";
 import { IgContainer } from "../igContainer/igContainer";
@@ -11,9 +12,6 @@ import pastry from "./pastry.svg";
 import igBg from "./igcont.svg";
 const SITE_KEY = "6LdW8_MZAAAAABAqupmRrwkjixbCQXSk2cOKzo43";
 
-
-// const URL = 'https://igauthstarchcode.herokuapp.com/igdata'
-const URL = "http://localhost:4000/igdata";
 
 export class Home extends React.Component {
   constructor(props) {
@@ -30,7 +28,7 @@ export class Home extends React.Component {
   }
 
   async igData() {
-    let data = await fetch(URL)
+    let data = await fetch(URL + '/igdata')
       .then((response) => response.json())
       .then((jsonResponse) => jsonResponse.result.data);
     // console.log(data);
@@ -48,7 +46,7 @@ export class Home extends React.Component {
       });
       const submitData = token => {
         // call a backend API to verify reCAPTCHA response
-        fetch('http://localhost:4000/contact', {
+        fetch(URL + '/contact', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
