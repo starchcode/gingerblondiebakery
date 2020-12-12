@@ -6,7 +6,7 @@ import { IgContainer } from "../igContainer/igContainer";
 import { Contact } from "../contact/contact";
 import { NavMiddle } from './NavMiddle/NavMiddle';
 import { Newsletter } from '../newsletter/newsletter';
-import { Footer } from './footer/Footer'
+import { Footer } from '../footer/Footer'
 import portrait from "./portrait.jpg";
 import pastry from "./pastry.svg";
 import igBg from "./igcont.svg";
@@ -138,7 +138,6 @@ export class Home extends React.Component {
         newsLetterMessage={this.state.newsLetterMessage}
         style={this.state.style}
         />
-        <Footer />
       </div>
     );
   }

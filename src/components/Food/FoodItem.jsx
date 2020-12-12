@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './FoodItem.css'
 export default class FoodItem extends Component {
   render() {
       //using regEx
@@ -10,14 +10,14 @@ export default class FoodItem extends Component {
     const titleRegex = /[^Private:].*/g;
     const title = propTitle.match(titleRegex);
     return (
-      <div>
+      <div className='foodItem'>
         <div className="foodImg">
           <img src={this.props.src} alt={this.props.title} />
         </div>
         <div className="foodDetails">
           <h2 dangerouslySetInnerHTML={{ __html: title}}></h2>
           {/* <h2>{title}</h2> */}
-          <h3>{this.props.price}</h3>
+          <h3>€{this.props.price}</h3>
           
           <p dangerouslySetInnerHTML={{ __html: this.props.description}}></p>
           {/* <p>{description}</p> */}

@@ -8,7 +8,7 @@ import "./App.css";
 import Nav from "./components/nav";
 // import About from './components/about';
 import { Home } from "./components/home/home";
-
+import {Footer} from './components/footer/Footer'
 import Food from "./components/Food/Food";
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
         {/* <Route path="/home/about" component={About}></Route> */}
         {/* <Route path="/contact" component={Contact}></Route> */}
       </Switch>
+      <Footer />
     </Router>
   );
 }

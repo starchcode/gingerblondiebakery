@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css'
-import Nav from '../../nav'
+import Nav from '../nav'
 
 export class Footer extends React.Component {
 

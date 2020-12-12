@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FoodItem from './FoodItem'
 // const URL = 'http://localhost:4000'
 import {SERVER_URL as URL} from '../urls'
-
+import './food.css';
 export default class Food extends Component {
 constructor(props){
     super(props);
@@ -38,11 +38,10 @@ const images = {}
 }
 
     render() {
-        console.log('rendered')
+
         if(this.state.foodData.length > 0){
             return ( 
-            <div>
-                Hi, This is food page!
+            <div className='foodContainer main'>
                 {this.state.foodData.map(data=> {
                     return <FoodItem
                     key={data.id}
@@ -55,7 +54,7 @@ const images = {}
                 </div>
                 )
             }else{
-                return <div>{this.state.error ? this.state.error : 'Loading...'}</div>
+                return <div className='foodContainer main'>{this.state.error ? this.state.error : 'Loading...'}</div>
             }
     }
             
