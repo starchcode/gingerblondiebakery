@@ -20,7 +20,7 @@ export class Home extends React.Component {
       igData: [],
       message: '',
       newsLetterMessage: '',
-      style: null
+      style: 'error'
       // {color: 'tomato'}
     };
     this.igData = this.igData.bind(this);
@@ -36,6 +36,9 @@ export class Home extends React.Component {
   }
 
   async submit(form) {
+    this.setState({style: ''})
+    const manytimes = 'You have tried too many times! try again later!'
+
     form.enquiry ? this.setState({message: 'Please be patient...'}) : this.setState({newsLetterMessage: 'Please be patient...'})
     window.grecaptcha.ready(() => {
         window.grecaptcha.execute(SITE_KEY, { action: 'submit' }).then(token => {
@@ -53,8 +56,10 @@ export class Home extends React.Component {
           },
           body: JSON.stringify(form)
         }).then(res => {
-          const manytimes = 'You have tried too many times! try again later!'
-          res.status === 429 && form.enquiry ? this.setState({message: manytimes}) : res.status === 429 && !form.enquiry ? this.setState({newsLetterMessage: manytimes}) : console.log('');
+          // throw new Error(manytimes)
+          // if(res.status === 429 && form.enquiry) throw new Error(manytimes);
+          // if(res.status === 429) throw new Error(manytimes)
+          if(res.status !==200) throw new Error('')
           return res.json();
         }).then(jsonResponse => {
           if(jsonResponse.type === 'subscription'){
@@ -65,14 +70,17 @@ export class Home extends React.Component {
           this.setState({message: jsonResponse.result})
         })
         .catch((err) => {
-          if(form.enquiry) {
-            console.log(form)
+          this.setState({style: 'error'})
+          if(err.message == manytimes && form.enquiry){
+            this.setState({ message: manytimes })
+          }else if(err.message == manytimes){
+            this.setState({ newsLetterMessage: manytimes})
+          }else if(form.enquiry) {
             this.setState({ message: "There was an error! Try again later! or use my email at bottom of the page to send me a message directly!" })
           }else{
             this.setState({ newsLetterMessage: "There was an error! Drop me your email and I will add you to the subscription list" })
 
           }
-          console.log(err)
         }
         )
       }
@@ -96,7 +104,7 @@ export class Home extends React.Component {
         document.body.appendChild(script);
       }
 
-      if (isScriptExist && callback) callback();
+      if (isScriptExist && callback) console.log('script already exists');
     }
 
     loadScriptByURL("recaptcha-key", `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`, function () {

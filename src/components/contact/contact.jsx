@@ -79,7 +79,7 @@ export class Contact extends React.Component {
             ></textarea>
           </div>
           <div>
-            <button type="submit">Submit</button>
+            <button id='submitEmail' type="submit">Submit</button>
             <p>{this.props.message}</p>
           </div>
         </form>

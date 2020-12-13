@@ -26,7 +26,7 @@ async submition(e){
             <div id="newsletterContainer">
                 <p>Sign up to our newsletter to be the first to find out where we are, special discounts and receive a copy of our blog posts which contain recipes</p>
 
-                <form onSubmit={this.submition}>
+                <form id='formNewsletter' onSubmit={this.submition}>
                 <label>Name: </label>
                 <input
               id="nameNewsletter"
@@ -43,9 +43,9 @@ async submition(e){
               required
               pattern="[a-z0-9._%+-]+@[[a-z0-9.-]+\.[a-z]{2,4}$"
             />
-        <button type='submit'>Sign up</button>
+        <button id='submitNewsletter' type='submit'>Sign up</button>
                 </form>
-            <p style={this.props.style}>{this.props.newsLetterMessage}</p>
+            <p className={this.props.style}>{this.props.newsLetterMessage}</p>
             </div>
         )
     }

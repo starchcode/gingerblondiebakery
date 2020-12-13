@@ -107,3 +107,6 @@
   /* -webkit-transform: translateX(-150px) rotateY(90deg); */
   transform: translateX(0) rotateY(0);
 }
+.error{
+  color: tomato;
+}
