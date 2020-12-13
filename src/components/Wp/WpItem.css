@@ -1,4 +1,4 @@
-.foodItem{
+.wpItem{
     display: flex;
     justify-content: center;
     /* max-height: 270px; */
@@ -9,11 +9,11 @@
     background-color: rgba(0, 0, 0, 0.05);
     transition: all 0.1s linear;
 }
-.foodImg{
+.wpImg{
 
     flex-basis: 50%;
 }
-.foodImg img{
+.wpImg img{
     width: 100%;
     padding: 6px;
     transform: rotateY(0deg);
@@ -21,7 +21,7 @@
 
 }
 
-.foodDetails{
+.wpDetails{
     text-align: center;
     display: flex;
     /* width: 50%; */
@@ -34,7 +34,7 @@
 
 
 }
-.foodDetails h2{
+.wpDetails h2{
     transform: rotateY(0);
     transition: all 0.1s linear;
 }

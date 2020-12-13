@@ -20,8 +20,7 @@ export class Home extends React.Component {
       igData: [],
       message: '',
       newsLetterMessage: '',
-      style: 'error'
-      // {color: 'tomato'}
+      style: '',
     };
     this.igData = this.igData.bind(this);
     this.submit = this.submit.bind(this);

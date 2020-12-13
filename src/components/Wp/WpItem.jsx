@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import './FoodItem.css'
-export default class FoodItem extends Component {
+import './WpItem.css'
+export default class WpItem extends Component {
   render() {
       //using regEx
     // const descProp = this.props.description;
     // const regex = /[^<p>].*(?=<\/)/g;
     // const description = descProp.match(regex);
     const propTitle = this.props.title;
-    const titleRegex = /[^Private:].*/g;
+    const titleRegex = /[^Private:].*/;
     const title = propTitle.match(titleRegex);
     return (
-      <div className='foodItem'>
-        <div className="foodImg">
+      <div className='wpItem'>
+        <div className="wpImg">
           <img src={this.props.src} alt={this.props.title} />
         </div>
-        <div className="foodDetails">
+        <div className="wpDetails">
           <h2 dangerouslySetInnerHTML={{ __html: title}}></h2>
           {/* <h2>{title}</h2> */}
           <h3>€{this.props.price}</h3>
