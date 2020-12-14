@@ -41,7 +41,7 @@ export class Home extends React.Component {
     form.enquiry ? this.setState({message: 'Please be patient...'}) : this.setState({newsLetterMessage: 'Please be patient...'})
     window.grecaptcha.ready(() => {
         window.grecaptcha.execute(SITE_KEY, { action: 'submit' }).then(token => {
-    form["g-recaptcha-response"] = token;
+    form["g-recaptcha-response"] = token
 
           submitData(token);
         });
@@ -55,9 +55,6 @@ export class Home extends React.Component {
           },
           body: JSON.stringify(form)
         }).then(res => {
-          // throw new Error(manytimes)
-          // if(res.status === 429 && form.enquiry) throw new Error(manytimes);
-          // if(res.status === 429) throw new Error(manytimes)
           if(res.status !==200) throw new Error('')
           return res.json();
         }).then(jsonResponse => {

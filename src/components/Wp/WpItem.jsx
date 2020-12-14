@@ -17,7 +17,7 @@ export default class WpItem extends Component {
         <div className="wpDetails">
           <h2 dangerouslySetInnerHTML={{ __html: title}}></h2>
           {/* <h2>{title}</h2> */}
-          <h3>€{this.props.price}</h3>
+          <h3>{this.props.price? '€' + this.props.price: ''}</h3>
           
           <p dangerouslySetInnerHTML={{ __html: this.props.description}}></p>
           {/* <p>{description}</p> */}
