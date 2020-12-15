@@ -25,7 +25,11 @@ export class App extends Component {
   }
 
   async data(path) {
-    fetch(`${URL}${path}`)
+    this.setState({
+      data: '',
+      images: '',
+    });
+    fetch(`${URL}/wp?q=${path}`)
       .then((res) => {
         if (res.status === 503) {
           this.setState({
@@ -38,14 +42,24 @@ export class App extends Component {
           this.setState({
             error: "There was a problem! Please refresh the page 😊",
           });
+        }else if (res.status === 200 && this.state.error.length >0){
+          this.setState({
+            error: ''
+          })
         }
         return res.json();
       })
       .then((jsonResponse) => {
-        this.setState({
-          data: jsonResponse.results,
-          images: jsonResponse.images,
-        });
+        if(jsonResponse.results.length === 0) {
+          this.setState({
+            error: "Coming soon...",
+          });
+        }else{
+          this.setState({
+            data: jsonResponse.results,
+            images: jsonResponse.images,
+          });
+        }
       })
       .catch((e) => console.log(e));
   }
@@ -69,10 +83,23 @@ export class App extends Component {
             <Wp fetchData={this.data}
                 data={this.state.data}
                 images={this.state.images} 
-                error={this.state.error}/>
+                error={this.state.error}
+                path='food'/>
           </Route>
-          {/* <Route path="/home/about" component={About}></Route> */}
-          {/* <Route path="/contact" component={Contact}></Route> */}
+          <Route path="/blog">
+            <Wp fetchData={this.data}
+                data={this.state.data}
+                images={this.state.images} 
+                error={this.state.error}
+                path='blog'/>
+          </Route>
+          <Route path="/recipes">
+            <Wp fetchData={this.data}
+                data={this.state.data}
+                images={this.state.images} 
+                error={this.state.error}
+                path='recipes'/>
+          </Route>
         </Switch>
         <Footer />
       </Router>

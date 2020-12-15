@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import WpItem from "./WpItem";
 // const URL = 'http://localhost:4000'
 import "./wp.css";
+import { WP_URL } from "../urls";
+
 export default class Wp extends Component {
   constructor(props) {
     super(props);
-
     this.imgFinder = this.imgFinder.bind(this);
+    this.handleLink = this.handleLink.bind(this);
   }
 
   imgFinder(data) {
@@ -17,18 +19,31 @@ export default class Wp extends Component {
 
       return result !== undefined ? result : "";
     } catch (error) {
-      console.log(error);
+      console.log("No Image!");
     }
   }
 
   componentDidMount() {
-    this.props.fetchData("/wp?q=food");
+    this.props.fetchData(this.props.path);
   }
 
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevProps.path !== this.props.path)
+      this.props.fetchData(this.props.path);
+  }
+  handleLink(e) {
+    // console.log('clicked')
+    if (this.props.path !== "food") {
+      window.open(WP_URL + "/" + this.props.path, "blank");
+    }
+  }
   render() {
-    if (this.props.data.length > 0) {
+    if (this.props.error.length < 1 && this.props.data.length > 0) {
+      const isLink = this.props.data[0].type !== "products";
+      console.log(this.props.data[0].type);
       return (
         <div className="wpContainer main">
+          <h1 onClick={isLink? this.handleLink: null} style={isLink ? {cursor: 'pointer'}: null}>{this.props.path}</h1>
           {this.props.data.map((data) => {
             return (
               <WpItem
@@ -37,6 +52,7 @@ export default class Wp extends Component {
                 price={data.acf.price}
                 description={data.excerpt.rendered}
                 title={data.title.rendered}
+                link={isLink ? data.link : null}
               />
             );
           })}
@@ -45,7 +61,8 @@ export default class Wp extends Component {
     } else {
       return (
         <div className="wpContainer main">
-          {this.props.error.length > 0 ? this.props.error : "Loading..."}
+          <h1>{this.props.path}</h1>
+          {this.props.error || "Loading..."}
         </div>
       );
     }
