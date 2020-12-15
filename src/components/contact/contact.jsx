@@ -31,7 +31,7 @@ export class Contact extends React.Component {
 
   render() {
     return (
-
+      <div id="contact">
       <div id="form">
         <form onSubmit={this.submit} className='formCont'>
           <div>
@@ -81,6 +81,7 @@ export class Contact extends React.Component {
             <p>{this.props.message}</p>
           </div>
         </form>
+      </div>
       </div>
     );
   }

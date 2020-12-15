@@ -48,6 +48,7 @@ h1 {
 
 .main {
   max-width: 900px;
+  height: 100%;
 }
 
 @media only screen and (max-width: 524px){
@@ -78,6 +79,42 @@ h1 {
 }
 .wpContainer h1:hover {
   color: #b98f68;
+}
+.navMiddleContainer:hover{
+  cursor: pointer;
+}
+
+
+.navMiddleContainer:hover div:nth-child(1) {
+  right: 0;
+  top: 0;
+}
+.navMiddleContainer:hover div:nth-child(2) {
+  right: 0;
+  bottom: 0;
+}
+
+.navMiddleContainer:hover img {
+  transform: scale(1.15);
+}
+
+.navMiddleContainer:hover h1 {
+  font-size: 120%;
+}
+
+
+.callBut:hover .call-to-action:before {
+  top: 0px;
+  left: 0px;
+}
+.callBut:hover{
+  transform: scale(1.1);
+}
+.callBut:hover h3{
+  color: rgb(255, 243, 209);
+}
+li:hover a{
+  color: red;
 }
 /* .foodItem:hover img{
     transform: rotateY(15deg);

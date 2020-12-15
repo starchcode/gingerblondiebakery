@@ -30,10 +30,12 @@
 }
 .callBut {
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   height: clamp(33px, 4.4vw, 51.92px);
   width: clamp(150px, 20vw, 236px);
+  transition: all 0.2s 0.1s;
 }
 .call-to-action {
   margin: 0 auto;
@@ -61,6 +63,7 @@
   left: 3px;
   z-index: -1;
   background-color: #808080;
+  transition: all 0.2s;
 }
 
 .home1 img {
@@ -96,6 +99,7 @@
   position: relative;
   padding: 0 50px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .contactCont img:nth-child(2) {

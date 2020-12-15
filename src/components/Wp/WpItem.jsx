@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './WpItem.css'
 export default class WpItem extends Component {
+ 
   render() {
     const propTitle = this.props.title;
     const titleRegex = /[^Private:].*/;

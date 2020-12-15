@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {SERVER_URL as URL} from '../urls'
 import "./home.css";
 import About from "../about";
@@ -85,6 +86,7 @@ export class Home extends React.Component {
 
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.igData();
     const loadScriptByURL = (id, url, callback) => {
       const isScriptExist = document.getElementById(id);
@@ -117,10 +119,14 @@ export class Home extends React.Component {
               sit amet, consectetur adipiscing elit. Sed mi elit, varius et
               eleifend non, congue eget neque. Proin tempor.
             </p>
+           <Link to='/food'>
             <div className="callBut">
+
               <h3>checkout my products</h3>
               <div className="call-to-action"></div>
             </div>
+           </Link>
+
             <img src={pastry} alt="pastry" />
           </div>
           <div className="home2">
@@ -129,7 +135,7 @@ export class Home extends React.Component {
         </div>
         <About />
         <NavMiddle />
-        <div id="contact" className="contactCont main">
+        <div id="contactContainer" className="contactCont main">
           <IgContainer data={this.state.igData} />
           <img src={igBg} />
           <Contact

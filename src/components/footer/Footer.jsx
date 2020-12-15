@@ -7,7 +7,7 @@ export class Footer extends React.Component {
     render(){
         return(
             <div id='footer'>
-            <Nav/>
+            <Nav footer={true}/>
             <div id='footer-social'>
                 <ul>
                     <a href='#'><li>Facebook</li></a>
