@@ -1,6 +1,5 @@
 import React from "react";
 import "./contact.css";
-import { Newsletter } from '../newsletter/newsletter';
 
 
 export class Contact extends React.Component {
@@ -34,7 +33,7 @@ export class Contact extends React.Component {
     return (
 
       <div id="form">
-        <form onSubmit={this.submit}>
+        <form onSubmit={this.submit} className='formCont'>
           <div>
             <label>Full name</label>
             <input
@@ -63,7 +62,6 @@ export class Contact extends React.Component {
               value={this.state.phone}
               id="phone"
               onChange={this.changeHandler}
-              placeholder="(+)xxx xx xxx xxxx"
               pattern="([+])?[0-9]+"
             />
           </div>
@@ -79,7 +77,7 @@ export class Contact extends React.Component {
             ></textarea>
           </div>
           <div>
-            <button id='submitEmail' type="submit">Submit</button>
+            <button id='submitEmail' type="submit" className="submitButton">Submit</button>
             <p>{this.props.message}</p>
           </div>
         </form>

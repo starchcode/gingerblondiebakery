@@ -136,6 +136,8 @@ export class Home extends React.Component {
           submit={this.submit}
           message={this.state.message}
           />
+          <img src={igBg} />
+
         </div>
         <Newsletter
         submit={this.submit}

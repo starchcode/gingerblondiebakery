@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   align-self: center;
+  height: 70vh;
   margin: 0 auto;
   /* height: 70vh; */
   /* overflow: hidden; */
@@ -25,6 +26,7 @@
 }
 .home1 h1 {
   margin: 10px 0;
+  margin-left: 5px;
 }
 .callBut {
   display: flex;
@@ -46,7 +48,7 @@
   position: absolute;
   color: white;
   text-transform: uppercase;
-  font-size: clamp(8px, 1.5vw, 18px);
+  font-size: clamp(11px, 1.5vw, 18px);
   z-index: 1;
 }
 .call-to-action:before {
@@ -102,6 +104,9 @@
   z-index: -10;
   margin: 0 auto;
 }
+.contactCont img:nth-child(4) {
+  display: none;
+}
 
 .contactCont:hover .igContainer {
   /* -webkit-transform: translateX(-150px) rotateY(90deg); */
@@ -109,4 +114,80 @@
 }
 .error{
   color: tomato;
+}
+
+@media only screen and (max-width: 652px){
+  .home1 h1 {
+    margin: -5px;
+    /* margin-left: 5px; */
+    font-size: 3.3vw;
+  }
+  .home1 p {
+    width: 80%;
+    font-size: 12px;
+    margin: 10px;
+    text-align: center;
+  }
+  /* .callBut h3 {
+    position: absolute;
+    color: white;
+    text-transform: uppercase;
+    font-size: clamp(8px, 1.5vw, 18px);
+    z-index: 1;
+  } */
+}
+@media only screen and (max-width: 501px){
+  .home1{
+    flex-grow: 1;
+  }
+  .home2 {
+    display: none;
+  }
+  .home1 h1 {
+    margin: 5px;
+    /* margin-left: 5px; */
+    font-size: 5vw;
+  }
+  .home1 p {
+    width: 80%;
+    font-size: 12px;
+    margin: 20px;
+    text-align: center;
+  }
+  .home1 img {
+    width: 80%;
+    position: relative;
+    top: -20px;
+    z-index: -2;
+    /* background-color: red; */
+  }
+}
+
+@media only screen and (max-width: 900px){
+  .contactCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 0 50px;
+    margin: 0 auto;
+
+    flex-wrap: wrap;
+  }
+  .contactCont img:nth-child(4) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -10;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 620px){
+  .contactCont img:nth-child(4) {
+    /* bottom: 14vw; */
+    bottom: clamp(20px, 50vw, 100px);
+  }
 }

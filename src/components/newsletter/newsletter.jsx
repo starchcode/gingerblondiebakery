@@ -43,7 +43,7 @@ async submition(e){
               required
               pattern="[a-z0-9._%+-]+@[[a-z0-9.-]+\.[a-z]{2,4}$"
             />
-        <button id='submitNewsletter' type='submit'>Sign up</button>
+        <button id='submitNewsletter' type='submit' className='submitButton'>Sign up</button>
                 </form>
             <p className={this.props.style}>{this.props.newsLetterMessage}</p>
             </div>

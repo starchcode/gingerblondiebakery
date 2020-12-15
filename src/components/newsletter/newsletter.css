@@ -10,12 +10,42 @@
     margin: 0 auto;
     width: 80%;
 }
+
 #newsletterContainer label{
     display: inline;
-    margin-right: 5px;
 }
 #newsletterContainer p{
     margin: 10px 0;
     text-align: center;
     max-width: 580px;
+}
+#newsletterContainer input{
+    margin-right: 15px;
+    width: 250px;
+}
+
+@media only screen and (max-width: 900px){
+    #newsletterContainer{
+        margin-bottom: 155px;
+    }
+    #newsletterContainer label{
+        display: block;
+    }
+    #newsletterContainer button{
+        display: block;
+        margin: 9px auto;
+    }
+}
+@media only screen and (max-width: 344px){
+    #newsletterContainer form{
+        width: 100vw;
+    }
+    #newsletterContainer input{
+        width: 100%;
+    margin: 0 5px;
+
+    }
+    #newsletterContainer label{
+        margin: 0 5px;
+    }
 }
