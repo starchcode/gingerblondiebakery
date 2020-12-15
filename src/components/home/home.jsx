@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import {SERVER_URL as URL} from '../urls'
 import "./home.css";
 import About from "../about";
@@ -7,7 +8,6 @@ import { IgContainer } from "../igContainer/igContainer";
 import { Contact } from "../contact/contact";
 import { NavMiddle } from './NavMiddle/NavMiddle';
 import { Newsletter } from '../newsletter/newsletter';
-import { Footer } from '../footer/Footer'
 import portrait from "./portrait.jpg";
 import pastry from "./pastry.svg";
 import igBg from "./igcont.svg";
@@ -86,8 +86,19 @@ export class Home extends React.Component {
 
 
   componentDidMount() {
-    window.scrollTo(0, 0);
+    // console.log(window.location.href)
+    const locationContact = /contact/.test(window.location.href);
+    const locationAbout = /about/.test(window.location.href);
+
+    const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
+    locationContact? scrollToElement('contact') : locationAbout ? scrollToElement('about') :
+    
+ 
+
+
+
     this.igData();
+
     const loadScriptByURL = (id, url, callback) => {
       const isScriptExist = document.getElementById(id);
 

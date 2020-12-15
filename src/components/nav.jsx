@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import "./nav.css";
 class Nav extends React.Component {
@@ -23,21 +22,32 @@ class Nav extends React.Component {
           <Link to="/blog">Blog</Link>
         </li>
         <li>
-          {/* <Link to="/">ABOUT</Link> */}
           <Link
-            to={{
-              pathname: '/',
-              hash: 'about',
-              state: {fromBanner: true}
+            to="/#about"
+            onClick={() => {
+              if (document.getElementById("about")) {
+                document
+                  .getElementById("about")
+                  .scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             }}
           >
             About
           </Link>
-
-          {/* <a href="/#about">about</a> */}
         </li>
         <li>
-          <Link to="/">Contact</Link>
+          <Link
+            to="/#contact"
+            onClick={() => {
+              if (document.getElementById("contact")) {
+                document
+                  .getElementById("contact")
+                  .scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+          >
+            Contact
+          </Link>
         </li>
       </ul>
     );
