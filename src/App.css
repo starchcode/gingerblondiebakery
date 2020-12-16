@@ -95,11 +95,11 @@ h1 {
 }
 
 .navMiddleContainer:hover img {
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 
 .navMiddleContainer:hover h1 {
-  font-size: 120%;
+  font-size: 105%;
 }
 
 
@@ -108,7 +108,7 @@ h1 {
   left: 0px;
 }
 .callBut:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .callBut:hover h3{
   color: rgb(255, 243, 209);
@@ -116,6 +116,14 @@ h1 {
 li:hover a{
   color: red;
 }
+.home2:hover img, .about_img:hover img{
+  transform: scale(1.019);
+  -webkit-box-shadow: 0px 0px 0px 0px rgb(185, 143, 104);
+  -moz-box-shadow: 0px 0px 0px 0px rgb(185, 143, 104);
+  box-shadow: 0px 0px 0px 0px rgb(185, 143, 104);
+}
+
+
 /* .foodItem:hover img{
     transform: rotateY(15deg);
 }

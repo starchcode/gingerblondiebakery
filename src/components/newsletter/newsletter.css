@@ -1,6 +1,6 @@
 #newsletterContainer{
     display: flex;
-    height: 200px;
+    height: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
 
 @media only screen and (max-width: 900px){
     #newsletterContainer{
-        margin-bottom: 155px;
+        margin-bottom: 0;
     }
     #newsletterContainer label{
         display: block;
@@ -38,14 +38,14 @@
 }
 @media only screen and (max-width: 344px){
     #newsletterContainer form{
-        width: 100vw;
+        width: 98vw;
     }
     #newsletterContainer input{
         width: 100%;
-    margin: 0 5px;
+    margin: 0 auto;
 
     }
     #newsletterContainer label{
-        margin: 0 5px;
+        margin: 0 auto;
     }
 }

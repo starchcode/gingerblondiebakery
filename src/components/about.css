@@ -27,10 +27,19 @@
     -webkit-box-shadow: 4px 4px 0px 0px rgb(185, 143, 104);
 -moz-box-shadow:    4px 4px 0px 0px rgb(185, 143, 104);
 box-shadow:         4px 4px 0px 0px rgb(185, 143, 104);
-    /* overflow: hidden; */
+    transition: all 0.5s;
 }
 .about_img p{
     margin: 18px 0;
     width: 80%;
     max-width: 800px;
+}
+@media only screen and (max-width: 350px){
+    .about_img p{
+        margin: 0 0;
+    }
+    .about_img{
+        margin:0 0;
+    
+    }
 }

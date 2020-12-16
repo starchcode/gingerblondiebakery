@@ -35,7 +35,7 @@
   align-items: center;
   height: clamp(33px, 4.4vw, 51.92px);
   width: clamp(150px, 20vw, 236px);
-  transition: all 0.2s 0.1s;
+  transition: all 0.2s 0.05s;
 }
 .call-to-action {
   margin: 0 auto;
@@ -88,6 +88,7 @@
   -webkit-box-shadow: 4px 4px 0px 0px rgb(185, 143, 104);
   -moz-box-shadow: 4px 4px 0px 0px rgb(185, 143, 104);
   box-shadow: 4px 4px 0px 0px rgb(185, 143, 104);
+  transition: all 0.5s;
 }
 
 .contactCont {
