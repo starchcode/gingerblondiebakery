@@ -18,7 +18,7 @@
   position: absolute;
   right: 6px;
   top: -6px;
-  transition: all 0.3s;
+  transition: all 0.2s;
 
 }
 .navMiddleContainer div:nth-child(2) {
@@ -47,4 +47,16 @@
   margin-bottom: 9%;
   transition: all 0.2s 0.1s;
 
+}
+
+@media only screen and (max-width: 400px){
+  .navMiddleContainer {
+    display: flex;
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+  }
 }

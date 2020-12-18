@@ -34,7 +34,7 @@ textarea{
     color: white;
 }
 
-@media only screen and (max-width: 344px){
+@media only screen and (max-width: 354px){
     #form{
     padding-left: 0;
     }

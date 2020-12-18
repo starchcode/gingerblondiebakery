@@ -46,6 +46,9 @@ async submition(e){
         <button id='submitNewsletter' type='submit' className='submitButton'>Sign up</button>
                 </form>
             <p className={this.props.style}>{this.props.newsLetterMessage}</p>
+            <div class='recaptcha'>
+            This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+            </div>
             </div>
         )
     }
