@@ -68,9 +68,9 @@ export class Home extends React.Component {
         })
         .catch((err) => {
           this.setState({style: 'error'})
-          if(err.message == manytimes && form.enquiry){
+          if(err.message === manytimes && form.enquiry){
             this.setState({ message: manytimes })
-          }else if(err.message == manytimes){
+          }else if(err.message === manytimes){
             this.setState({ newsLetterMessage: manytimes})
           }else if(form.enquiry) {
             this.setState({ message: "There was an error! Try again later! or use my email at bottom of the page to send me a message directly!" })
@@ -85,8 +85,9 @@ export class Home extends React.Component {
   }
 
 
+
   componentDidMount() {
-    // console.log(window.location.href)
+
     const locationContact = /contact/.test(window.location.href);
     const locationAbout = /about/.test(window.location.href);
 
@@ -117,13 +118,16 @@ export class Home extends React.Component {
     }
 
     loadScriptByURL("recaptcha-key", `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`, function () {
-        console.log("Script loaded!");
+        // console.log("Script loaded!");
       });
   }
+
+
+  
   render() {
     return (
-      <div>
-        <div id="home" className="main">
+      <div className='startEntrance' style={this.props.loaded? {transform: 'scale(1)', opacity: '1', height: 'auto', overflow: 'auto'} : {pointerEvents: 'none', height: '100vh', overflow: 'hidden'}}>
+        <div id="home" className="main" >
           <div className="home1">
             <h1>the ginger blondie bakery</h1>
             <p>
@@ -138,22 +142,22 @@ export class Home extends React.Component {
             </div>
            </Link>
 
-            <img src={pastry} alt="pastry" />
+            <img src={pastry}   alt="pastry" />
           </div>
           <div className="home2">
-            <img src={portrait} alt="portrait" />
+            <img src={portrait}  alt="portrait" />
           </div>
         </div>
         <About />
         <NavMiddle />
         <div id="contactContainer" className="contactCont main">
           <IgContainer data={this.state.igData} />
-          <img src={igBg} />
+          <img src={igBg} alt="background image"/>
           <Contact
           submit={this.submit}
           message={this.state.message}
           />
-          <img src={igBg} />
+          <img src={igBg} alt="background image"/>
 
         </div>
         <Newsletter

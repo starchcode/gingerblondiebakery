@@ -26,12 +26,14 @@ export default class Wp extends Component {
   componentDidMount() {
     this.props.fetchData(this.props.path);
     window.scrollTo(0, 0);
+    // console.log('wordpress container mounted and scrolled')
   }
 
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.path !== this.props.path)
       this.props.fetchData(this.props.path);
-    window.scrollTo(0, 0);
+    //   console.log('wp cmp updated so let us scroll!')
+    // window.scrollTo(0, 0);
 
   }
   handleLink(e) {

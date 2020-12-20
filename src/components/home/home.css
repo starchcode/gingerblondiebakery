@@ -117,11 +117,18 @@
   /* -webkit-transform: translateX(-150px) rotateY(90deg); */
   transform: translateX(0) rotateY(0);
 }
-.error{
+.error {
   color: tomato;
 }
 
-@media only screen and (max-width: 652px){
+.startEntrance {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s;
+}
+
+
+@media only screen and (max-width: 652px) {
   .home1 h1 {
     margin: -5px;
     /* margin-left: 5px; */
@@ -141,8 +148,8 @@
     z-index: 1;
   } */
 }
-@media only screen and (max-width: 501px){
-  .home1{
+@media only screen and (max-width: 501px) {
+  .home1 {
     flex-grow: 1;
   }
   .home2 {
@@ -168,7 +175,7 @@
   }
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 900px) {
   .contactCont {
     display: flex;
     flex-direction: row;
@@ -190,7 +197,7 @@
     margin: 0 auto;
   }
 }
-@media only screen and (max-width: 620px){
+@media only screen and (max-width: 620px) {
   .contactCont img:nth-child(4) {
     /* bottom: 14vw; */
     bottom: clamp(20px, 50vw, 100px);

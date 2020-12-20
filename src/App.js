@@ -8,10 +8,11 @@ import {SERVER_URL as URL} from './components/urls'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/nav";
-// import About from './components/about';
 import { Home } from "./components/home/home";
 import { Footer } from "./components/footer/Footer";
 import Wp from "./components/Wp/Wp";
+import { Loader } from './Loader';
+
 
 export class App extends Component {
   constructor(props) {
@@ -19,9 +20,11 @@ export class App extends Component {
     this.state = {
       data: [],
       images: [],
-      error: ''
+      error: '',
+      loaded: false
     };
     this.data = this.data.bind(this);
+    this.loadHandle = this.loadHandle.bind(this);
   }
 
   async data(path) {
@@ -64,6 +67,30 @@ export class App extends Component {
       .catch((e) => console.log(e));
   }
 
+  loadHandle(){
+    this.setState({loaded: true})
+    
+    const locationRecipes = /recipes/.test(window.location.href);
+    const locationBlog = /blog/.test(window.location.href);
+    const locationFood = /food/.test(window.location.href);
+
+    // const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
+    if (!locationRecipes && !locationBlog && !locationFood) window.scroll(0, 0)
+
+    
+    // console.log('loaded')
+  }
+
+componentDidMount() {
+  
+  window.addEventListener('load', this.loadHandle);
+
+  
+}
+
+
+
+
   render() {
     return (
       <Router>
@@ -77,7 +104,8 @@ export class App extends Component {
         </header>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home loaded={this.state.loaded}/>
+            {!this.state.loaded ? <Loader /> : null}
           </Route>
           <Route path="/food">
             <Wp fetchData={this.data}

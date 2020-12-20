@@ -6,7 +6,7 @@ export class IgImg extends React.Component{
     render(){
         return(
             <a href={this.props.link} target="blank">
-                <img src={this.props.src} className='igimg'/>
+                <img src={this.props.src} className='igimg' alt='instagram'/>
                 </a>
         )
     }

@@ -13,13 +13,13 @@ class Nav extends React.Component {
           </li>
         ) : null}
         <li>
-          <Link to="/food">Food</Link>
+          <Link to="/food" onClick={() => window.scroll(0, 0)}>Food</Link>
         </li>
         <li>
-          <Link to="/recipes">Recipes</Link>
+          <Link to="/recipes" onClick={() => window.scroll(0, 0)}>Recipes</Link>
         </li>
         <li>
-          <Link to="/blog">Blog</Link>
+          <Link to="/blog" onClick={() => window.scroll(0, 0)}>Blog</Link>
         </li>
         <li>
           <Link
