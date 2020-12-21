@@ -23,8 +23,12 @@ export class Contact extends React.Component {
   }
   async submit(e) {
     e.preventDefault();    
-    console.log('ok')
     this.props.submit(this.state);
+    this.setState({
+      fullName: "",
+      email: "",
+      phone: "",
+    })
   }
 
  

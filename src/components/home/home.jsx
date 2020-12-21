@@ -18,25 +18,18 @@ export class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      igData: [],
       message: '',
       newsLetterMessage: '',
-      style: '',
+      style: ''
     };
-    this.igData = this.igData.bind(this);
     this.submit = this.submit.bind(this);
   }
 
-  async igData() {
-    let data = await fetch(URL + '/igdata')
-      .then((response) => response.json())
-      .then((jsonResponse) => jsonResponse.result.data);
-    // console.log(data);
-    this.setState({ igData: data });
-  }
+  
 
   async submit(form) {
     this.setState({style: ''})
+    console.log(form)
     const manytimes = 'You have tried too many times! try again later!'
 
     form.enquiry ? this.setState({message: 'Please be patient...'}) : this.setState({newsLetterMessage: 'Please be patient...'})
@@ -57,14 +50,25 @@ export class Home extends React.Component {
           body: JSON.stringify(form)
         }).then(res => {
           if(res.status !==200) throw new Error('')
+          console.log('status is 200')
+          console.log(res)
           return res.json();
+          // console.log('should not log')
         }).then(jsonResponse => {
-          if(jsonResponse.type === 'subscription'){
+          // console.log('here is your type: contact')
+          console.log('here is your type: ' + jsonResponse.type)
+          if(jsonResponse.type == 'subscription'){
+          console.log('here is your response: ' + jsonResponse)
+
+            console.log('this is subscription')
             console.log(jsonResponse.result)
             return this.setState({newsLetterMessage: jsonResponse.result})
           }
-          console.log('type isn not subs')
-          this.setState({message: jsonResponse.result})
+
+            console.log('this is contact request')
+            console.log(jsonResponse.result)
+            this.setState({message: jsonResponse.result})
+
         })
         .catch((err) => {
           this.setState({style: 'error'})
@@ -92,13 +96,7 @@ export class Home extends React.Component {
     const locationAbout = /about/.test(window.location.href);
 
     const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
-    locationContact? scrollToElement('contact') : locationAbout ? scrollToElement('about') :
-    
- 
-
-
-
-    this.igData();
+    locationContact? scrollToElement('contact') : locationAbout ? scrollToElement('about') : console.log('')
 
     const loadScriptByURL = (id, url, callback) => {
       const isScriptExist = document.getElementById(id);
@@ -121,7 +119,6 @@ export class Home extends React.Component {
         // console.log("Script loaded!");
       });
   }
-
 
   
   render() {
@@ -151,7 +148,7 @@ export class Home extends React.Component {
         <About />
         <NavMiddle />
         <div id="contactContainer" className="contactCont main">
-          <IgContainer data={this.state.igData} />
+          <IgContainer data={this.props.igData} />
           <img src={igBg} alt="background image"/>
           <Contact
           submit={this.submit}

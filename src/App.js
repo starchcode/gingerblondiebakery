@@ -18,6 +18,7 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      igData: [],
       data: [],
       images: [],
       error: '',
@@ -25,6 +26,7 @@ export class App extends Component {
     };
     this.data = this.data.bind(this);
     this.loadHandle = this.loadHandle.bind(this);
+    this.igData = this.igData.bind(this);
   }
 
   async data(path) {
@@ -81,10 +83,17 @@ export class App extends Component {
     // console.log('loaded')
   }
 
+  async igData() {
+    let data = await fetch(URL + '/igdata')
+      .then((response) => response.json())
+      .then((jsonResponse) => jsonResponse.result.data);
+    // console.log(data);
+    this.setState({ igData: data });
+  }
 componentDidMount() {
   
   window.addEventListener('load', this.loadHandle);
-
+  this.igData();
   
 }
 
@@ -104,7 +113,7 @@ componentDidMount() {
         </header>
         <Switch>
           <Route exact path="/">
-            <Home loaded={this.state.loaded}/>
+            <Home igData={this.state.igData} loaded={this.state.loaded}/>
             {!this.state.loaded ? <Loader /> : null}
           </Route>
           <Route path="/food">
