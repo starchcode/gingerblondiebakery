@@ -2,12 +2,19 @@
     display: grid;
     /* width: 50%; */
     height: 100%;
+    width: 100%;
     /* flex: 1 45vw; */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: .72fr 1fr 1fr 1fr;
     column-gap: 5px;
     row-gap: 1.9px;
     /* padding: 0 5%; */
+  }
+  
+  @-moz-document url-prefix() {
+    .igContainer {
+    grid-template-rows: .3fr;
+  }
 }
 
 

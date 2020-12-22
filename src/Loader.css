@@ -1,16 +1,23 @@
 #loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
     position: fixed;
     /* center the div */
+    top:0;
     right: 0;
     left: 0;
     margin-right: auto;
     margin-left: auto;
     /* give it dimensions */
     min-height: 10em;
-    width: 90vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
     /* just for example presentation */
-    top: 12em;
+    /* top: 12em; */
     text-align: center;
+    cursor: wait;
 }
 
 #headingLoader{

@@ -49,12 +49,15 @@ export class Home extends React.Component {
           },
           body: JSON.stringify(form)
         }).then(res => {
+          if(res.status ===429) throw new Error(manytimes)
           if(res.status !==200) throw new Error('')
           console.log('status is 200')
           console.log(res)
           return res.json();
-          // console.log('should not log')
+
         }).then(jsonResponse => {
+          console.log('jsonResponse')
+          console.log(jsonResponse)
           // console.log('here is your type: contact')
           console.log('here is your type: ' + jsonResponse.type)
           if(jsonResponse.type == 'subscription'){

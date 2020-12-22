@@ -3,6 +3,7 @@ import WpItem from "./WpItem";
 // const URL = 'http://localhost:4000'
 import "./wp.css";
 import { WP_URL } from "../urls";
+import { Loader } from '../../Loader'
 
 export default class Wp extends Component {
   constructor(props) {
@@ -24,14 +25,13 @@ export default class Wp extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData(this.props.path);
     window.scrollTo(0, 0);
     // console.log('wordpress container mounted and scrolled')
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    if (prevProps.path !== this.props.path)
-      this.props.fetchData(this.props.path);
+    // if (prevProps.path !== this.props.path)
+      // this.props.fetchData(this.props.path);
     //   console.log('wp cmp updated so let us scroll!')
     // window.scrollTo(0, 0);
 
@@ -43,12 +43,13 @@ export default class Wp extends Component {
     }
   }
   render() {
-    if (this.props.error.length < 1 && this.props.data.length > 0) {
-      const isLink = this.props.data[0].type !== "products";
-      console.log(this.props.data[0].type);
+    // if (this.props.error.length < 1 && this.props.data.length > 0) {
+    if (!this.props.error && this.props.data) {
+      const isLink = this.props.path !== "food";
+      // console.log(this.props.data[0].type);
       return (
         <div className="wpContainer main">
-          <h1 onClick={isLink? this.handleLink: null} style={isLink ? {cursor: 'pointer'}: null}>{this.props.path}</h1>
+          <h1 onClick={isLink? this.handleLink: null} style={isLink ? {cursor: 'pointer'}: {cursor: 'default'}}>{this.props.path}</h1>
           {this.props.data.map((data) => {
             return (
               <WpItem
@@ -67,7 +68,7 @@ export default class Wp extends Component {
       return (
         <div className="wpContainer main">
           <h1>{this.props.path}</h1>
-          {this.props.error || "Loading..."}
+          {this.props.error || <Loader />}
         </div>
       );
     }

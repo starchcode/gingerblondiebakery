@@ -19,7 +19,9 @@ export class App extends Component {
     super(props);
     this.state = {
       igData: [],
-      data: [],
+      foodData: [],
+      recipesData: [],
+      blogData: [],
       images: [],
       error: '',
       loaded: false
@@ -30,10 +32,11 @@ export class App extends Component {
   }
 
   async data(path) {
-    this.setState({
-      data: '',
-      images: '',
-    });
+    // this.setState({
+    //   data: '',
+    //   images: '',
+    // });
+    console.log('going to get data for ' + path)
     fetch(`${URL}/wp?q=${path}`)
       .then((res) => {
         if (res.status === 503) {
@@ -52,21 +55,34 @@ export class App extends Component {
             error: ''
           })
         }
+        console.log(res.status)
         return res.json();
       })
       .then((jsonResponse) => {
+        console.log('response converted to JSON: ')
+        console.log(jsonResponse)
         if(jsonResponse.results.length === 0) {
           this.setState({
             error: "Coming soon...",
           });
         }else{
+          const whichState = path + 'Data'
           this.setState({
-            data: jsonResponse.results,
-            images: jsonResponse.images,
+            [whichState]: jsonResponse.results,
+            // images: jsonResponse.images,
+          });
+          if (!this.state.image && jsonResponse.images) this.setState({images: jsonResponse.images})
+        }
+      })
+      .catch((e) => {
+        console.log('error: ' + e.message)
+        if(e.message = 'failed to fetch') {
+          this.setState({
+            error:
+              `Backend Server is down contact website Admin!`
           });
         }
       })
-      .catch((e) => console.log(e));
   }
 
   loadHandle(){
@@ -90,10 +106,21 @@ export class App extends Component {
     // console.log(data);
     this.setState({ igData: data });
   }
-componentDidMount() {
+async componentDidMount() {
   
   window.addEventListener('load', this.loadHandle);
   this.igData();
+  const blog = this.data('blog')
+  const food = this.data('food')
+  const recipes = this.data('recipes')
+  const results = await Promise.all([blog, food, recipes]).then(values =>{
+    console.log(values)
+    this.setState({
+      foodData: values[0],
+      recipesData: values[1],
+      blogData: values[2],
+    })
+  })
   
 }
 
@@ -104,6 +131,7 @@ componentDidMount() {
     return (
       <Router>
         <header>
+            {!this.state.loaded ? <Loader /> : null}
           <Link to="/">
             <div id="h">
               <img src={logo} />
@@ -114,25 +142,24 @@ componentDidMount() {
         <Switch>
           <Route exact path="/">
             <Home igData={this.state.igData} loaded={this.state.loaded}/>
-            {!this.state.loaded ? <Loader /> : null}
           </Route>
           <Route path="/food">
-            <Wp fetchData={this.data}
-                data={this.state.data}
+            <Wp 
+                data={this.state.foodData}
                 images={this.state.images} 
                 error={this.state.error}
                 path='food'/>
           </Route>
           <Route path="/blog">
-            <Wp fetchData={this.data}
-                data={this.state.data}
+            <Wp 
+                data={this.state.blogData}
                 images={this.state.images} 
                 error={this.state.error}
                 path='blog'/>
           </Route>
           <Route path="/recipes">
-            <Wp fetchData={this.data}
-                data={this.state.data}
+            <Wp 
+                data={this.state.recipesData}
                 images={this.state.images} 
                 error={this.state.error}
                 path='recipes'/>
