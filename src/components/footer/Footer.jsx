@@ -32,6 +32,7 @@ export class Footer extends React.Component {
         </small>
         <br/>
         <small>
+          <p style={{fontSize: '11px', marginTop: '9px', opacity: 0.4}}>Photos taken by ©Cormac Dunne</p>
           <a href="https://www.freepik.com/vectors/food">
             Food vector created by macrovector - www.freepik.com
           </a>
