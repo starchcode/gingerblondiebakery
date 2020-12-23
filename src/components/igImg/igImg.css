@@ -1,5 +1,6 @@
 .igimg{
-    width: 100%;
+    max-width: 120px;
+    /* flex-basis: 200px; */
     position: relative;
     z-index: 1;
     opacity: 0.93;
@@ -14,6 +15,12 @@
     grid-column: 1 / 4;
     justify-self: center;
     align-self: end;
-    width: initial;
-    height: 50%;
+    width: 120px;
+    /* height: 50%; */
+}
+
+@media only screen and (max-width: 370px){
+    .igimg{
+        max-width: 90px;
+    }
 }
