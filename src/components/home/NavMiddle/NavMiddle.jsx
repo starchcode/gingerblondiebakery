@@ -14,15 +14,36 @@ export class NavMiddle extends React.Component {
   render() {
     return (
       <div className="NavMiddle main">
-        <a href="/#about">
+        <Link
+          to="/about"
+          onClick={() => {
+            if (document.getElementById("about")) {
+              document
+                .getElementById("about")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }}
+        >
           <NavMiddleIco src={about} txt="about" />
-        </a>
+        </Link>
+
         <Link to="/blog">
           <NavMiddleIco src={blog} txt="blog" />
         </Link>
-        <a href="/#contact">
+
+        <Link
+          to="/contact"
+          onClick={() => {
+            if (document.getElementById("contact")) {
+              document
+                .getElementById("contact")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }}
+        >
           <NavMiddleIco src={contact} txt="contact" />
-        </a>
+        </Link>
+
         <Link to="/food">
           <NavMiddleIco src={food} txt="food" />
         </Link>

@@ -1,0 +1,18 @@
+.notfound{
+    display: flex;
+    width: 100vw;
+    min-height: 80vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.notfound  p{
+    padding-top: 50px;
+}
+
+.notfound p{
+    color: coral;
+
+}

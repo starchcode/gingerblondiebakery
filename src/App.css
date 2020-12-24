@@ -72,6 +72,8 @@ h1 {
 
 
 /* hover animations */
+@media (hover: hover) {
+
 .wpItem {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -140,3 +142,10 @@ li:hover a{
     transform: rotateY(15deg);
 
 } */
+
+.igimg:hover{
+  transform: scale(1.06);
+  opacity: 1;
+  z-index: 10;
+}
+}

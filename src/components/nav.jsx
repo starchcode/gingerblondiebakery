@@ -23,7 +23,7 @@ class Nav extends React.Component {
         </li>
         <li>
           <Link
-            to="/#about"
+            to="/about"
             onClick={() => {
               if (document.getElementById("about")) {
                 document
@@ -37,7 +37,7 @@ class Nav extends React.Component {
         </li>
         <li>
           <Link
-            to="/#contact"
+            to="/contact"
             onClick={() => {
               if (document.getElementById("contact")) {
                 document

@@ -4,7 +4,7 @@
     height: auto;
     justify-content: space-around;
     /* align-items: stretch; */
-    margin:0 auto;
+    margin:4% auto;
     flex-wrap: wrap;
-    margin-top: 4%;
+
 }

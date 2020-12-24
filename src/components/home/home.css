@@ -172,7 +172,7 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 750px) {
   .contactCont {
     display: flex;
     flex-direction: row;
@@ -192,6 +192,11 @@
     width: 100%;
     z-index: -10;
     margin: 0 auto;
+    -webkit-transform: scaleX(-1);
+
+
+    transform: scaleX(-1.05) skewY(4deg);
+    /* transform: skewY(20deg); */
   }
 }
 @media only screen and (max-width: 620px) {

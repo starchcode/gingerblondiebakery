@@ -97,9 +97,13 @@ export class Home extends React.Component {
 
     const locationContact = /contact/.test(window.location.href);
     const locationAbout = /about/.test(window.location.href);
-
-    const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
-    locationContact? scrollToElement('contact') : locationAbout ? scrollToElement('about') : console.log('')
+    console.log(locationContact)
+    const scrollToElement = (location) => {
+      setTimeout(() => {
+        document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
+      }, 500)
+    }
+    locationContact? scrollToElement('contact') : locationAbout ? scrollToElement('about') : window.scroll(0, 0)
 
     const loadScriptByURL = (id, url, callback) => {
       const isScriptExist = document.getElementById(id);

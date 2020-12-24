@@ -12,7 +12,7 @@ import { Home } from "./components/home/home";
 import { Footer } from "./components/footer/Footer";
 import Wp from "./components/Wp/Wp";
 import { Loader } from './Loader';
-
+import { Notfound } from './components/404/Notfound'
 
 export class App extends Component {
   constructor(props) {
@@ -76,7 +76,7 @@ export class App extends Component {
       })
       .catch((e) => {
         console.log('error: ' + e.message)
-        if(e.message = 'failed to fetch') {
+        if(e.message === 'failed to fetch') {
           this.setState({
             error:
               `Backend Server is down contact website Admin!`
@@ -88,12 +88,12 @@ export class App extends Component {
   loadHandle(){
     this.setState({loaded: true})
     
-    const locationRecipes = /recipes/.test(window.location.href);
-    const locationBlog = /blog/.test(window.location.href);
-    const locationFood = /food/.test(window.location.href);
+    // const locationRecipes = /recipes/.test(window.location.href);
+    // const locationBlog = /blog/.test(window.location.href);
+    // const locationFood = /food/.test(window.location.href);
 
     // const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
-    if (!locationRecipes && !locationBlog && !locationFood) window.scroll(0, 0)
+    // if (!locationRecipes && !locationBlog && !locationFood) window.scroll(0, 0)
 
     
     // console.log('loaded')
@@ -113,7 +113,8 @@ async componentDidMount() {
   const blog = this.data('blog')
   const food = this.data('food')
   const recipes = this.data('recipes')
-  const results = await Promise.all([blog, food, recipes]).then(values =>{
+  // const results = 
+  await Promise.all([blog, food, recipes]).then(values =>{
     console.log(values)
     this.setState({
       foodData: values[0],
@@ -134,13 +135,19 @@ async componentDidMount() {
             {!this.state.loaded ? <Loader /> : null}
           <Link to="/">
             <div id="h">
-              <img src={logo} />
+              <img src={logo} alt='logo of gingerblondie' />
             </div>
           </Link>
           <Nav />
         </header>
         <Switch>
           <Route exact path="/">
+            <Home igData={this.state.igData} loaded={this.state.loaded}/>
+          </Route>
+          <Route exact path="/about">
+            <Home igData={this.state.igData} loaded={this.state.loaded}/>
+          </Route>
+          <Route exact path="/contact">
             <Home igData={this.state.igData} loaded={this.state.loaded}/>
           </Route>
           <Route path="/food">
@@ -164,6 +171,7 @@ async componentDidMount() {
                 error={this.state.error}
                 path='recipes'/>
           </Route>
+          <Route ><Notfound/></Route>
         </Switch>
         <Footer />
       </Router>

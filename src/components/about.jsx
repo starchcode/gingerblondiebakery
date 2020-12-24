@@ -6,28 +6,26 @@ const aboutDes ={
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales erat. In id ipsum vel mi fermentum consectetur a sed nisi. Donec sit amet diam eget elit scelerisque suscipit. Pellentesque sapien risus, facilisis sed augue sed, dapibus mattis elit. Integer pretium nulla ac hendrerit mollis. Integer maximus, neque consequat malesuada venenatis, dolor tortor fringilla neque, et ultrices nisi enim sed dui. Suspendisse auctor augue quis porta fermentum. Curabitur nec pretium dui. Duis id eros tincidunt, feugiat arcu eu, auctor mauris."
 }
 class About extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.handleClick= this.handleClick.bind(this);
-  // }
-  // componentDidMount() {
-  //   if (this.mySection.current) {
-  //     this.mySection.current.scrollIntoView({
-  //       behavior: "smooth",
-  //       nearest: "block"
-  //     });
-  //   }
-  // }
-//   mySection = React.createRef();
-  // handleClick(){
-  //     console.log('handleClick clicked')
-  //           if (this.mySection.current) {
-  //         this.mySection.current.scrollIntoView({
-  //           behavior: "smooth",
-  //           nearest: "block"
-  //         });
-  //       }
-  // }
+  constructor(props) {
+    super(props);
+    // this.handleClick= this.handleClick.bind(this);
+  }
+  componentDidMount() {
+    // this.setState({loaded: true})
+    console.log('about component mounted')
+    
+    // const locationAbout = /about/.test(window.location.href);
+
+
+    // const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
+    // if (locationAbout) 
+  // document.getElementById('about').scrollIntoView({behavior: 'smooth', block: 'start'})
+
+    // window.scroll(0, 0)
+
+    
+  }
+
 
   render() {
     return (
