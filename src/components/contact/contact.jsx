@@ -53,11 +53,9 @@ export class Contact extends React.Component {
             <input
               id="email"
               value={this.state.email}
-              id="email"
               onChange={this.changeHandler}
               required
-              pattern="[a-z0-9._%+-]+@[[a-z0-9.-]+\.[a-z]{2,4}$"
-              required
+              pattern="[a-zA-Z0-9._%+-]+@[[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
             />
           </div>
           <div>
@@ -68,8 +66,8 @@ export class Contact extends React.Component {
               onChange={this.changeHandler}
               pattern="([+])?[0-9]+"
             />
-          </div>
           <div>
+          </div>
             <label>Enquiry</label>
             <textarea
               id="enquiry"

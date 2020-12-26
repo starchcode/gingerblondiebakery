@@ -130,13 +130,12 @@ export class Home extends React.Component {
   
   render() {
     return (
-      <div className='startEntrance' style={this.props.loaded? {transform: 'scale(1)', opacity: '1', height: 'auto', overflow: 'auto'} : {pointerEvents: 'none', height: '100vh', overflow: 'hidden'}}>
+      <div className='startEntrance' style={this.props.loaded? {transform: 'scale(1)', opacity: '1', height: 'auto'} : {pointerEvents: 'none', height: '100vh', overflow: 'hidden'}}>
         <div id="home" className="main" >
           <div className="home1">
             <h1>the ginger blondie bakery</h1>
             <p>
-              sit amet, consectetur adipiscing elit. Sed mi elit, varius et
-              eleifend non, congue eget neque. Proin tempor.
+            Find our main products that are made to order, recipes to try at home, and follow the link to our Instagram to see what seasonal treats we have to offer.
             </p>
            <Link to='/food'>
             <div className="callBut">

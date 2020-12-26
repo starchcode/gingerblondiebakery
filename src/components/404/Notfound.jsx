@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './Notfound.css'
 import { NavMiddle } from '../home/NavMiddle/NavMiddle'
-import Nav from '../nav';
 
 export const Notfound = () => {
     return (

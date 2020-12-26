@@ -39,7 +39,7 @@ export default class Wp extends Component {
   handleLink(e) {
     // console.log('clicked')
     if (this.props.path !== "food") {
-      window.open(WP_URL + "/" + this.props.path, "blank");
+      window.open(WP_URL + "/" + this.props.path, "_parent");
     }
   }
   render() {

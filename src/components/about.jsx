@@ -3,7 +3,7 @@ import aboutme from "./imgs/aboutme.jpg";
 import './about.css';
 
 const aboutDes ={
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales erat. In id ipsum vel mi fermentum consectetur a sed nisi. Donec sit amet diam eget elit scelerisque suscipit. Pellentesque sapien risus, facilisis sed augue sed, dapibus mattis elit. Integer pretium nulla ac hendrerit mollis. Integer maximus, neque consequat malesuada venenatis, dolor tortor fringilla neque, et ultrices nisi enim sed dui. Suspendisse auctor augue quis porta fermentum. Curabitur nec pretium dui. Duis id eros tincidunt, feugiat arcu eu, auctor mauris."
+    text: "Located in the heart of Dublin 7, The Ginger Blondie’s aim is to provide original recipe plant-based cakes and bakes in the locality and to offer recipes and foodie inspiration online. Born out of a cook’s temptation to master the art of vegan, gluten-free baking and hours of experimentation, these treats were designed to delight and are made with top quality ingredients which are mostly organic and always refined sugar free."
 }
 class About extends React.Component {
   constructor(props) {
