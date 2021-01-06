@@ -13,12 +13,12 @@ constructor(props){
     this.submition = this.submition.bind(this);
 }
 changeHandler(e){
-    // console.log(e.target.id)
+
     this.setState({[e.target.id]: e.target.value});
 }
 async submition(e){
     e.preventDefault();
-    // console.log(this.state)
+
     this.props.submit(this.state);
 }
     render(){

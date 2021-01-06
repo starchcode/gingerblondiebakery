@@ -36,7 +36,7 @@ box-shadow:         4px 4px 0px 0px rgb(185, 143, 104);
 }
 @media only screen and (max-width: 350px){
     .about_img p{
-        margin: 0 0;
+        margin: 20px 0;
     }
     .about_img{
         margin:0 0;

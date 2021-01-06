@@ -8,22 +8,6 @@ const aboutDes ={
 class About extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleClick= this.handleClick.bind(this);
-  }
-  componentDidMount() {
-    // this.setState({loaded: true})
-    console.log('about component mounted')
-    
-    // const locationAbout = /about/.test(window.location.href);
-
-
-    // const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
-    // if (locationAbout) 
-  // document.getElementById('about').scrollIntoView({behavior: 'smooth', block: 'start'})
-
-    // window.scroll(0, 0)
-
-    
   }
 
 

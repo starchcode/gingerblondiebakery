@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React, { Component } from "react";
 
 import logo from "./logo.svg";
@@ -32,11 +31,7 @@ export class App extends Component {
   }
 
   async data(path) {
-    // this.setState({
-    //   data: '',
-    //   images: '',
-    // });
-    console.log('going to get data for ' + path)
+
     fetch(`${URL}/wp?q=${path}`)
       .then((res) => {
         if (res.status === 503) {
@@ -55,12 +50,11 @@ export class App extends Component {
             error: ''
           })
         }
-        console.log(res.status)
+
         return res.json();
       })
       .then((jsonResponse) => {
-        console.log('response converted to JSON: ')
-        console.log(jsonResponse)
+
         if(jsonResponse.results.length === 0) {
           this.setState({
             error: "Coming soon...",
@@ -69,13 +63,12 @@ export class App extends Component {
           const whichState = path + 'Data'
           this.setState({
             [whichState]: jsonResponse.results,
-            // images: jsonResponse.images,
           });
           if (!this.state.image && jsonResponse.images) this.setState({images: jsonResponse.images})
         }
       })
       .catch((e) => {
-        console.log('error: ' + e.message)
+
         if(e.message === 'failed to fetch') {
           this.setState({
             error:
@@ -88,22 +81,12 @@ export class App extends Component {
   loadHandle(){
     this.setState({loaded: true})
     
-    // const locationRecipes = /recipes/.test(window.location.href);
-    // const locationBlog = /blog/.test(window.location.href);
-    // const locationFood = /food/.test(window.location.href);
-
-    // const scrollToElement = (location) => document.getElementById(location).scrollIntoView({behavior: 'smooth', block: 'start'})
-    // if (!locationRecipes && !locationBlog && !locationFood) window.scroll(0, 0)
-
-    
-    // console.log('loaded')
   }
 
   async igData() {
     let data = await fetch(URL + '/igdata')
       .then((response) => response.json())
       .then((jsonResponse) => jsonResponse.result.data);
-    // console.log(data);
     this.setState({ igData: data });
   }
 async componentDidMount() {
@@ -115,7 +98,6 @@ async componentDidMount() {
   const recipes = this.data('recipes')
   // const results = 
   await Promise.all([blog, food, recipes]).then(values =>{
-    console.log(values)
     this.setState({
       foodData: values[0],
       recipesData: values[1],

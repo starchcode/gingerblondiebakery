@@ -14,6 +14,18 @@ export class NavMiddle extends React.Component {
   render() {
     return (
       <div className="NavMiddle main">
+        <Link to="/food">
+          <NavMiddleIco src={food} txt="food" />
+        </Link>
+
+        <Link to="/recipes">
+          <NavMiddleIco src={recipes} txt="recipes" />
+        </Link>
+
+        <Link to="/blog">
+          <NavMiddleIco src={blog} txt="blog" />
+        </Link>
+        
         <Link
           to="/about"
           onClick={() => {
@@ -27,9 +39,7 @@ export class NavMiddle extends React.Component {
           <NavMiddleIco src={about} txt="about" />
         </Link>
 
-        <Link to="/blog">
-          <NavMiddleIco src={blog} txt="blog" />
-        </Link>
+
 
         <Link
           to="/contact"
@@ -44,12 +54,7 @@ export class NavMiddle extends React.Component {
           <NavMiddleIco src={contact} txt="contact" />
         </Link>
 
-        <Link to="/food">
-          <NavMiddleIco src={food} txt="food" />
-        </Link>
-        <Link to="/recipes">
-          <NavMiddleIco src={recipes} txt="recipes" />
-        </Link>
+
       </div>
     );
   }

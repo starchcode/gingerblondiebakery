@@ -7,7 +7,7 @@ export class NavMiddleIco extends React.Component {
       <div className='navMiddleContainer' >
         <div></div>
         <div></div>
-        <img src={this.props.src}/>
+        <img src={this.props.src} alt=''/>
         <h1>{this.props.txt}</h1>  
       </div>
     );

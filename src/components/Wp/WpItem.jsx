@@ -10,7 +10,7 @@ export default class WpItem extends Component {
     return (
       <div className='wpItem' 
           style={isLink ? {cursor:'pointer'}: null}
-          onClick={ isLink ? () =>  window.open(this.props.link, '_blank'): null}>
+          onClick={ isLink ? () =>  window.open(this.props.link, '_self'): null}>
         <div className="wpImg" >
           <img src={this.props.src} alt={this.props.title} />
         </div>
