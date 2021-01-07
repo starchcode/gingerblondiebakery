@@ -48,7 +48,7 @@ To-do list:
 
 ## Status
 
-Project is: __Finished!__
+![progress](https://img.shields.io/badge/Finished!-brightgreen 'progress')
 
 ## Contact
 
