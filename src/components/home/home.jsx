@@ -154,7 +154,7 @@ export class Home extends React.Component {
         <About />
         <NavMiddle />
         <div id="contactContainer" className="contactCont main">
-          <IgContainer data={this.props.igData} />
+          <IgContainer data={this.props.igData? this.props.igData: []} />
           <img src={igBg} alt="background image"/>
           <Contact
           submit={this.submit}
